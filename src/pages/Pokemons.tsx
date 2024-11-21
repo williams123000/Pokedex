@@ -25,40 +25,39 @@ const Pokemons = () => {
     fetchAllPokemons();
   }, []);
 
-
   const filteredPokemons = pokemons?.slice(0, 151).filter((pokemon) => {
     return pokemon.name.toLowerCase().match(query.toLowerCase());
   });
-
 
   if (isLoading || !pokemons) {
     return <LoadingScreen/>;
   }
 
-
   return (
     <>
       <Header query={query} setQuery={setQuery} />
-      <main>
-        <nav className={styles.nav}>
+      <main className={styles.mainContainer}>
+        <div className={styles.pokemonGrid}>
           {filteredPokemons?.slice(0, 151).map((pokemon) => (
             <Link
               key={pokemon.id}
-              className={styles.listItem}
+              className={styles.pokemonCard}
               to={`/pokemons/${pokemon.name.toLowerCase()}`}
             >
-              <img
-                className={styles.listItemIcon}
-                src={pokemon.imgSrc}
-                alt={pokemon.name}
-              />
-              <div className={styles.listItemText}>
-                <span>{pokemon.name}</span>
-                <span>{pokemon.id}</span>
+              <div className={styles.pokemonCardContent}>
+                <img
+                  className={styles.pokemonIcon}
+                  src={pokemon.imgSrc}
+                  alt={pokemon.name}
+                />
+                <div className={styles.pokemonInfo}>
+                  <span className={styles.pokemonName}>{pokemon.name}</span>
+                  <span className={styles.pokemonId}>#{pokemon.id}</span>
+                </div>
               </div>
             </Link>
           ))}
-        </nav>
+        </div>
       </main>
       <Footer />
     </>

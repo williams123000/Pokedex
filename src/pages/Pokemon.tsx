@@ -3,7 +3,6 @@ import pokeballSrc from "../assets/pokeball.png";
 import Footer from "../components/footer";
 import styles from "./pokemon.module.css";
 
-import bulbasaurImg from "../assets/bulbasaur.gif";
 import { PokemonDetails } from "../types/types";
 import { useEffect, useState } from "react";
 import { fetchPokemon } from "../api/fetchPokemon";
@@ -31,31 +30,68 @@ const Pokemon = () => {
     return <LoadingScreen />;
   }
 
-
   return (
-    <>
+    <div className={styles.pokemonPage}>
       <button className={styles.pokeballButton} onClick={() => navigate(-1)}>
         <img className={styles.pokeballImg} src={pokeballSrc} alt="pokeball" />
         Go back
       </button>
-      <div className={styles.pokemon}>
-        <main className={styles.pokemonInfo}>
-          <div className={styles.pokemonTitle}>{pokemon?.name?.toUpperCase()}</div>
-          <div>Nr. {pokemon?.id}</div>
-          <div>
+      <div className={styles.pokemonDetailsContainer}>
+        <div className={styles.pokemonCard}>
+          <div className={styles.pokemonCardHeader}>
+            <h1 className={styles.pokemonName}>{pokemon?.name?.toUpperCase()}</h1>
+            <span className={styles.pokemonId}>Nr. {pokemon?.id}</span>
+          </div>
+          
+          <div className={styles.pokemonImageContainer}>
             <img
-              className={styles.pokemonInfoImg}
+              className={styles.pokemonImage}
               src={pokemon?.imgSrc}
               alt={pokemon?.name}
             />
           </div>
-          <div>HP: {pokemon?.hp}</div>
-          <div>Attack: {pokemon?.attack}</div>
-          <div>Defense: {pokemon?.defense}</div>
-        </main>
+          
+          <div className={styles.pokemonStats}>
+            <div className={styles.statItem}>
+              <span className={styles.statLabel}>HP</span>
+              <div className={styles.statBar}>
+                <div 
+                  className={styles.statBarFill} 
+                  style={{width: `${(pokemon?.hp || 0) / 2}%`}}
+                >
+                  {pokemon?.hp}
+                </div>
+              </div>
+            </div>
+            
+            <div className={styles.statItem}>
+              <span className={styles.statLabel}>Attack</span>
+              <div className={styles.statBar}>
+                <div 
+                  className={styles.statBarFill} 
+                  style={{width: `${(pokemon?.attack || 0) / 2}%`}}
+                >
+                  {pokemon?.attack}
+                </div>
+              </div>
+            </div>
+            
+            <div className={styles.statItem}>
+              <span className={styles.statLabel}>Defense</span>
+              <div className={styles.statBar}>
+                <div 
+                  className={styles.statBarFill} 
+                  style={{width: `${(pokemon?.defense || 0) / 2}%`}}
+                >
+                  {pokemon?.defense}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

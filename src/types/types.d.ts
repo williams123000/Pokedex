@@ -14,3 +14,13 @@ export type PokemonDetails = {
     defense:  number;
 
 }
+
+export type Item = {
+    id: string;
+    name: string;
+    category: string;
+    description: string;
+    imgSrc: string;
+    cost: number;
+    attributes: string[];
+  };

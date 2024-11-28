@@ -1,0 +1,131 @@
+.mainContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    height: auto;
+    margin-bottom: 100px;
+  }
+  
+  .categoryFilter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .categoryButton {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .categoryButton:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .categoryButton.active {
+    background: linear-gradient(
+      45deg, 
+      rgba(124, 166, 252, 1) 25%, 
+      rgba(119, 235, 129, 1) 100%
+    );
+    color: white;
+  }
+  
+  .itemGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .itemCard {
+    background-color: #f9f9f9;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  .itemCard:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .itemCardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 100%;
+  }
+  
+  .itemIcon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+  
+  .itemInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .itemName {
+    background: linear-gradient(
+      45deg, 
+      rgba(124, 166, 252, 1) 25%, 
+      rgba(119, 235, 129, 1) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+  
+  .itemCategory {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .itemDescription {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+  
+  .itemCost {
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .itemAttributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .attribute {
+    background-color: #e8f4f8;
+    color: #2c3e50;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+  }

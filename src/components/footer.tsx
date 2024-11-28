@@ -13,7 +13,6 @@ const Footer = () => {
                 Pokemons
             </Link>
             <Link 
-            onClick={() => alert("This page is under construction")}
             className={styles.footerLink} 
             to="/items">
                 <img className={styles.footerIcon} src={ItemsPic} alt="pokeball" />
